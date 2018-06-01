@@ -1,7 +1,7 @@
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.StdOut;
 
-public class EdgeWeightedGraphMatrix {
+public class EdgeWeightedGraphMatrix {  //solution 4.3.10
     private final int V;
     private int E;
     private double[][] weight;
