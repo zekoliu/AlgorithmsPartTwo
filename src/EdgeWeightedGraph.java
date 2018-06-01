@@ -66,8 +66,8 @@ public class EdgeWeightedGraph {
 
     public static void main(String[] args) {
         EdgeWeightedGraph G = new EdgeWeightedGraph(new In(args[0]));
-//        for (Edge e : G.edges())
-//            StdOut.println(e);
+        for (Edge e : G.edges())
+            StdOut.println(e);
         StdOut.println(G.toString());
     }
 }
