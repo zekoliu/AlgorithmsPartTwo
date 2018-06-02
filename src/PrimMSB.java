@@ -53,7 +53,7 @@ public class PrimMSB {
     }
 
     public int firstNum(int id, EdgeWeightedGraph G) {
-        CC cc = new CC(G);
+        CCMST cc = new CCMST(G);
 
         int M = cc.count();
         Queue<Integer>[] queue = (Queue<Integer>[]) new Queue[M];
