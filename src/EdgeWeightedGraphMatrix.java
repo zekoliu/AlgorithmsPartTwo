@@ -47,6 +47,20 @@ public class EdgeWeightedGraphMatrix {  //solution 4.3.10
         return temp;
     }
 
+    public int[] adjAA(int v) {     //4.3.28
+        int index = 0;
+        int[] adj = new int[V];
+        for (int i = 0; i < V; i++)
+            if (weight[v][i] != 0)
+                adj[index++] = i;
+        return adj;
+    }
+
+    public double getWeightAA(int v, int w) {   //4.3.28
+        return weight[v][w];
+    }
+
+
     public static void main(String[] args) {
         EdgeWeightedGraphMatrix G = new EdgeWeightedGraphMatrix(8);
         G.addEdge(new Edge(4, 5, 0.35));
