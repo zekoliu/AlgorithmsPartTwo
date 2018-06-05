@@ -58,11 +58,20 @@ public class EdgeWeightedDigraph {
         return bag;
     }
 
+    public String toString() {
+        String s = "";
+        for (int v = 0; v < V; v++)
+            for (DirectedEdge e : adj[v])
+                s = s + e.toString() + "\n";
+        return s;
+    }
+
     public static void main(String[] args) {
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(new In(args[0]));
-        for (DirectedEdge e : G.edges()) {
-            StdOut.print(e.toString() + " ");
-            StdOut.println();
-        }
+//        for (DirectedEdge e : G.edges()) {
+//            StdOut.print(e.toString() + " ");
+//            StdOut.println();
+//        }
+        StdOut.println(G.toString());
     }
 }
