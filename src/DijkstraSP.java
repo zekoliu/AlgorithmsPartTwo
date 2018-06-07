@@ -1,7 +1,6 @@
-import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.IndexMinPQ;
-import edu.princeton.cs.algs4.Stack;
-import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.DirectedEdge;
+import edu.princeton.cs.algs4.EdgeWeightedDigraph;
+import edu.princeton.cs.algs4.*;
 
 public class DijkstraSP {
     private DirectedEdge[] eageTo;
@@ -17,6 +16,7 @@ public class DijkstraSP {
             distTo[v] = Double.POSITIVE_INFINITY;
         distTo[s] = 0;
 
+        G = changeWeight(G);
         pq.insert(s, 0.0);
         while (!pq.isEmpty())
             relax(G, pq.delMin());
@@ -32,6 +32,21 @@ public class DijkstraSP {
                 else                pq.insert(w, distTo[w]);
             }
         }
+    }
+
+    public EdgeWeightedDigraph changeWeight(EdgeWeightedDigraph G) {
+        double temp = 0;
+        for (int v = 0; v < G.V(); v++)
+            for (DirectedEdge e : G.adj(v))
+                if (e.weight() < temp)
+                    temp = e.weight();
+        if (temp == 0)
+            return G;
+        EdgeWeightedDigraph newG = new EdgeWeightedDigraph(G.V());
+        for (int v = 0; v < G.V(); v++)
+            for (DirectedEdge e : G.adj(v))
+                newG.addEdge(new DirectedEdge(e.from(), e.to(), e.weight() + Math.abs(temp)));
+        return newG;
     }
 
     public double distTO(int v) {
