@@ -19,7 +19,7 @@ public class Quick3string {
         while (i <= gt) {
             int t = chatAt(a[i], d);
             if      (t < v) exch(a, lt++, i++);
-            else if (t < v) exch(a, i, gt--);
+            else if (t > v) exch(a, i, gt--);
             else            i++;
         }
         sort(a, lo, lt-1, d);
