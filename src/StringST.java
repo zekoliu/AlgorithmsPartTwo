@@ -11,6 +11,8 @@ public class StringST {
     public void  add(String key) {
         if (key == null)
             return;
+        if (contains(key))
+            return;
         if (size > 3/4 * strings.length)
             reverse(2 * N);
         strings[index++] = key;
